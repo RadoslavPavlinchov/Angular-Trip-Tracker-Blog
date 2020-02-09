@@ -1,0 +1,24 @@
+// @import "src/scss/variables";
+:host {
+  height: 100%;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+//   background-color: $button_purpure;
+    background-color: #c3abab3a;
+
+}
+
+.mat-form-field {
+  width: 100%;
+  min-width: 300px;
+}
+mat-card-title,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  width: 100%;
+}

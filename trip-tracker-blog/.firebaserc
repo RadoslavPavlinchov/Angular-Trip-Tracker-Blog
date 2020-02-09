@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "ng-trip-tracker-blog": {
+      "hosting": {
+        "trip-tracker-blog": [
+          "ng-trip-tracker-blog"
+        ]
+      }
+    }
+  }
+}

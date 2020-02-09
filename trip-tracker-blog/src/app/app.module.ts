@@ -6,19 +6,41 @@ import { AppComponent } from './app.component';
 import { NewPostComponent } from './components/posts/new-post/new-post.component';
 import { NewPostModule } from './components/posts/new-post/new-post.module';
 import { PostComponent } from './components/posts/post/post.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
+import { ToolbarComponent } from './shared/components/toolbar/toolbar.component';
+
+// Firebase
+import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { AngularFireStorageModule, StorageBucket } from "@angular/fire/storage";
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { environment } from 'src/environments/environment';
+
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
     AppComponent,
     NewPostComponent,
-    PostComponent
+    PostComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireAuthModule,
     AppRoutingModule,
-    NewPostModule
+    NewPostModule,
+    MaterialModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {provide: StorageBucket, useValue:'gs://ng-trip-tracker-blog.appspot.com'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
