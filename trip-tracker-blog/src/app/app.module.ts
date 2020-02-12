@@ -19,6 +19,7 @@ import { environment } from 'src/environments/environment';
 
 import { ReactiveFormsModule } from "@angular/forms";
 import { ContainerAppComponent } from './components/pages/container-app/container-app.component';
+import { ModalComponent } from './shared/components/modal/modal.component';
 // import { TableComponent } from './shared/components/table/table.component';
 
 @NgModule({
@@ -28,6 +29,7 @@ import { ContainerAppComponent } from './components/pages/container-app/containe
     PostComponent,
     ToolbarComponent,
     ContainerAppComponent,
+    ModalComponent,
     // TableComponent
   ],
   imports: [
@@ -42,9 +44,16 @@ import { ContainerAppComponent } from './components/pages/container-app/containe
     MaterialModule,
     ReactiveFormsModule
   ],
-  providers: [
-    {provide: StorageBucket, useValue:'gs://ng-trip-tracker-blog.appspot.com'}
+  entryComponents: [
+    ModalComponent
   ],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: StorageBucket, useValue: 'gs://ng-trip-tracker-blog.appspot.com'
+    }
+  ],
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }
