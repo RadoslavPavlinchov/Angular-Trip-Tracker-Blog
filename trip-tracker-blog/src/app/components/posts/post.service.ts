@@ -41,8 +41,12 @@ export class PostService {
     return this.postsCollection.doc(post.id).delete();
   }
 
-  public editPostById(post: PostI) {
-    return this.postsCollection.doc(post.id).update(post);
+  public editPostById(post: PostI, newImage?: FileI) {        
+    if (newImage) {
+      this.uploadImage(post, newImage);
+    } else {
+      return this.postsCollection.doc(post.id).update(post);
+    }
   }
 
   public preAddAndUpdatePost(post: PostI, image: FileI): void {
@@ -57,8 +61,11 @@ export class PostService {
       fireRef: this.filePath,
       tagsPost: post.tagsPost,
     }
-    // TODO editPost
-    this.postsCollection.add(postObj);
+    if (post.id) {
+      return this.postsCollection.doc(post.id).update(postObj);
+    } else {
+      return this.postsCollection.add(postObj);
+    }
   }
 
   private uploadImage(post: PostI, image: FileI) {

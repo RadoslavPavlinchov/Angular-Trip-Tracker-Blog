@@ -20,6 +20,8 @@ import { environment } from 'src/environments/environment';
 import { ReactiveFormsModule } from "@angular/forms";
 import { ContainerAppComponent } from './components/pages/container-app/container-app.component';
 import { ModalComponent } from './shared/components/modal/modal.component';
+import { EditPostComponent } from './components/posts/edit-post/edit-post.component';
+import { EditPostModule } from './components/posts/edit-post/edit-post.module';
 // import { TableComponent } from './shared/components/table/table.component';
 
 @NgModule({
@@ -30,6 +32,7 @@ import { ModalComponent } from './shared/components/modal/modal.component';
     ToolbarComponent,
     ContainerAppComponent,
     ModalComponent,
+    EditPostComponent,
     // TableComponent
   ],
   imports: [
@@ -42,7 +45,8 @@ import { ModalComponent } from './shared/components/modal/modal.component';
     AppRoutingModule,
     NewPostModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    EditPostModule
   ],
   entryComponents: [
     ModalComponent
