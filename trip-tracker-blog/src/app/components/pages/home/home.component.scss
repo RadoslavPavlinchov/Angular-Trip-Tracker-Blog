@@ -7,20 +7,7 @@
   grid-column-gap: 10px;
   grid-row-gap: 15px;
   justify-content: center;
-
-  a{
-      cursor: pointer;
-      color: #fff;
-      text-decoration: none;
-  }
-
   .post-card {
-    &:hover {
-      opacity: 0.8;
-    }
-
-    // background: $card_background;
-    // color: $default_white;
     background: #444;
     color: #fff;
     border-radius: 5px;

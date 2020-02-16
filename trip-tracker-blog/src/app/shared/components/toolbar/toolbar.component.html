@@ -27,7 +27,7 @@
     <a 
     routerLink="/admin" 
     routerLinkActive="active"
-    *ngIf="authService.userData | async"
+    *ngIf="authService.userData$ | async"
     >
         <button mat-button>Admin</button>
     </a>
@@ -36,7 +36,7 @@
         <button mat-button>About</button>
     </a>
 
-    <a *ngIf="authService.userData | async; else showLogin" (click)="onLogout()">
+    <a *ngIf="authService.userData$ | async; else showLogin" (click)="onLogout()">
         <button mat-button>Logout</button>
     </a>
 

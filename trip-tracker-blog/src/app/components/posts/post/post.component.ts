@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
-import { PostService } from "../post.service";
+import { Component, OnInit, Input } from '@angular/core';
+import { PostService } from "../../posts/post.service";
+import { PostI } from "../../../shared/models/post.interface";
 import { Observable } from 'rxjs';
-import { PostI } from 'src/app/shared/models/post.interface';
 
 @Component({
   selector: 'app-post',
@@ -10,14 +9,14 @@ import { PostI } from 'src/app/shared/models/post.interface';
   styleUrls: ['./post.component.scss']
 })
 export class PostComponent implements OnInit {
+  // public posts$: Observable<PostI[]>;
+  @Input() post: PostI;
 
-  public post$: Observable<PostI>;
-
-  constructor(private route: ActivatedRoute, private postService: PostService) { }
+  constructor(private postService: PostService) { }
 
   ngOnInit() {
-    const id = this.route.snapshot.params.id;
-    this.post$ = this.postService.getPost(id);
+    // this.postService.getAllPosts().subscribe(res => console.log('POSTS', res));
+    // this.posts$ = this.postService.getAllPosts();
   }
 
 }

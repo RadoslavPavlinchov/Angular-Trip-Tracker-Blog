@@ -1,19 +1,10 @@
 {
-  "hosting": [
-    {
-      "target": "trip-tracker-blog",
-      "public": "dist/trip-tracker-blog",
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
-      ],
-      "rewrites": [
-        {
-          "source": "**",
-          "destination": "/index.html"
-        }
-      ]
-    }
-  ]
+  "hosting": {
+    "public": "dist/trip-tracker-blog",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
 }

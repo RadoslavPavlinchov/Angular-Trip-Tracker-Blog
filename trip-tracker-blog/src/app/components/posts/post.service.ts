@@ -33,8 +33,8 @@ export class PostService {
       );
   }
 
-  public getPost(id: PostI): Observable<PostI> {
-    return this.afs.doc<PostI>(`post/${id}`).valueChanges();
+  public getOnePost(id: PostI): Observable<PostI> {
+    return this.afs.doc<PostI>(`posts/${id}`).valueChanges();
   }
 
   public deletePostById(post: PostI) {
