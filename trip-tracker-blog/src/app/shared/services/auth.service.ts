@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { UserI } from "../models/user.interface";
-import { AngularFireAuth} from "@angular/fire/auth";
+import { AngularFireAuth } from "@angular/fire/auth";
 import { Observable } from "rxjs";
 import { FileI } from '../models/file.interface';
 import { AngularFireStorage } from '@angular/fire/storage';
@@ -15,7 +15,17 @@ export class AuthService {
 
   constructor(private afAuth: AngularFireAuth, private storage: AngularFireStorage) {
     this.userData$ = afAuth.authState;
-   }
+  }
+
+  signUpWithEmail(email, password) {
+    return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+    .then((res) => {
+      window.alert("You have been successfully registered!");
+      console.log(res.user);
+    }).catch((err) => {
+      window.alert(err.message)
+    })
+  }
 
   loginWithEmail(user: UserI) {
     const { email, password } = user;
@@ -27,7 +37,7 @@ export class AuthService {
   }
 
   preSaveUserProfile(user: UserI, image?: FileI): void {
-    if(image) {
+    if (image) {
       this.uploadImage(user, image);
     } else {
       this.saveUserProfile(user);
@@ -39,14 +49,14 @@ export class AuthService {
     const fileRef = this.storage.ref(this.filePath);
     const task = this.storage.upload(this.filePath, image);
     task.snapshotChanges()
-    .pipe(
-      finalize(() => {
-        fileRef.getDownloadURL().subscribe( urlImage => {
-          user.photoURL = urlImage;
-          this.saveUserProfile(user);
-        });
-      })
-    ).subscribe();
+      .pipe(
+        finalize(() => {
+          fileRef.getDownloadURL().subscribe(urlImage => {
+            user.photoURL = urlImage;
+            this.saveUserProfile(user);
+          });
+        })
+      ).subscribe();
   }
 
   private saveUserProfile(user: UserI) {
@@ -54,7 +64,7 @@ export class AuthService {
       displayName: user.displayName,
       photoURL: user.photoURL
     })
-    .then(() => console.log('User updated'))
-    .catch((err) => console.log('Error', err));
+      .then(() => console.log('User updated'))
+      .catch((err) => console.log('Error', err));
   }
 }
