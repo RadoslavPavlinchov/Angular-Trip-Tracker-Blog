@@ -1,4 +1,3 @@
-// @import "src/scss/variables";
 .profile-card{
   width: 100%;
   height: 100vh;
@@ -14,10 +13,8 @@
     p{
       position: absolute;
       width: 100%;
-    //   background:$button_purpure;
-    //   color: $default_white;
-    background: purple;
-    color: white;
+      background: purple;
+      color: white;
       text-transform: uppercase;
       transition: all 0.5s ease;
     }
@@ -26,10 +23,8 @@
       width: 150px;
       height: 150px;
       border-radius: 50%;
-    //   border: 2px solid $default_white;
-    border: 2px solid white;
+      border: 2px solid white;
       &:hover{
-        // border: 2px solid $button_purpure;
         border: 2px solid purple;
         cursor: pointer;
       }
@@ -44,7 +39,6 @@
       bottom: 0%;
     }
   }
-
 
   mat-card-header{
     justify-content: center;

@@ -1,8 +1,6 @@
 <mat-card-header>
     <mat-card-title>
-        <a [routerLink]="['/post', post.id]">
-            {{post.titlePost}}
-        </a>
+        <a [routerLink]="['/post', post.id]">{{post.titlePost}}</a>
     </mat-card-title>
 </mat-card-header>
 <img matCardImage [src]="post.imagePost">

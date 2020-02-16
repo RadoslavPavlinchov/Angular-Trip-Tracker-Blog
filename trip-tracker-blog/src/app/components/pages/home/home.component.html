@@ -1,3 +1,10 @@
+<section>
+    <div fxLayout="column" fxLayoutAlign="center center">
+        <h1>Enjoy the daily traveling.</h1>
+        <p>Welcome to our traveling blog</p>
+    </div>
+  </section>
+
 <div class="container" *ngIf="posts$ | async as posts; else loading">
     <mat-card class="post-card" *ngFor="let post of posts">
         <app-post [post]="post"></app-post>
@@ -8,3 +15,4 @@
         <mat-spinner></mat-spinner>
     </div>
 </ng-template>
+

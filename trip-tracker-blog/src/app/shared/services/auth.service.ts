@@ -17,14 +17,15 @@ export class AuthService {
     this.userData$ = afAuth.authState;
   }
 
-  signUpWithEmail(email, password) {
+  signUpWithEmail(user: UserI) {
+    const { email, password } = user;
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
-    .then((res) => {
-      window.alert("You have been successfully registered!");
-      console.log(res.user);
-    }).catch((err) => {
-      window.alert(err.message)
-    })
+    // .then((res) => {
+    //   window.alert("You have been successfully registered!");
+    //   console.log(res.user);
+    // }).catch((err) => {
+    //   window.alert(err.message)
+    // })
   }
 
   loginWithEmail(user: UserI) {

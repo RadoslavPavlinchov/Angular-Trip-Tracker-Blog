@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from "./../../../shared/services/auth.service";
+import { AuthService } from "../../../shared/services/auth.service";
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserI } from 'src/app/shared/models/user.interface';
 import { Router } from '@angular/router';
@@ -20,10 +20,10 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
   }
-
+ 
   onSignUp(form:UserI) {
     this.authService
-    .signUpWithEmail(form.email, form.password)
+    .signUpWithEmail(form)
     .then(res => {
       console.log('Successfully', res);
       this.route.navigate(['/']);

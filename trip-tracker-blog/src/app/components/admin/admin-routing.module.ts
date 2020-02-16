@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AdminComponent } from './admin.component';
-// import { ListPostsModule } from "../posts/list-posts/list-posts.module";
 
 const routes: Routes = [
   { 

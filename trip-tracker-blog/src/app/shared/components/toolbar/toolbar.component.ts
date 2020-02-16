@@ -7,7 +7,7 @@ import { AuthService } from "../../services/auth.service";
   styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent implements OnInit {
-  public appName = 'Trip Tracker'
+  public appName = 'Trip Tracker Blog'
 
   constructor(public authService: AuthService) { }
 

@@ -22,6 +22,7 @@ import { ModalComponent } from './shared/components/modal/modal.component';
 import { EditPostComponent } from './components/posts/edit-post/edit-post.component';
 import { EditPostModule } from './components/posts/edit-post/edit-post.module';
 import { DetailsPostComponent } from './components/posts/details-post/details-post.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 // import { SignupComponent } from './components/auth/signUp/sign-up.component';
 // import { TableComponent } from './shared/components/table/table.component';
 
@@ -48,7 +49,8 @@ import { DetailsPostComponent } from './components/posts/details-post/details-po
     NewPostModule,
     MaterialModule,
     ReactiveFormsModule,
-    EditPostModule
+    EditPostModule,
+    FlexLayoutModule
   ],
   entryComponents: [
     ModalComponent

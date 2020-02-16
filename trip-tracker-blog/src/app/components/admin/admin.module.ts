@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
 import { MaterialModule } from "../../material.module";
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { MaterialModule } from "../../material.module";
   imports: [
     CommonModule,
     AdminRoutingModule,
-    MaterialModule
+    MaterialModule,
+    FlexLayoutModule
   ]
 })
 export class AdminModule { }

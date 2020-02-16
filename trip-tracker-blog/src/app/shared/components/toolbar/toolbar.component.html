@@ -1,5 +1,6 @@
 <mat-toolbar color="primary">
-    <a routerLink="/" routerLinkActive="active">{{ appName }}</a>
+    
+    <a routerLink="/" routerLinkActive="active">{{ appName }}<mat-icon>flight</mat-icon></a>
     <span class="fill-remaining-space"></span>
 
     <a routerLink="/admin" routerLinkActive="active" *ngIf="authService.userData$ | async">
