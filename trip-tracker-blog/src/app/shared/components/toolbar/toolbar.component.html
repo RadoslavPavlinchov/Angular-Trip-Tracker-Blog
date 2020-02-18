@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<!-- <mat-toolbar color="primary">
     
     <a routerLink="/" routerLinkActive="active">{{ appName }}<mat-icon>flight</mat-icon></a>
     <span class="fill-remaining-space"></span>
@@ -11,7 +11,7 @@
         <button mat-button>About</button>
     </a>
 
-    <a *ngIf="authService.userData$ | async; else showLogin" (click)="onLogout()">
+    <a *ngIf="authService.userData$ | async; else showLogin" (click)="logout()">
         <button mat-button>Logout</button>
     </a>
 
@@ -23,4 +23,31 @@
             <button mat-button>Sign Up</button>
         </a>
     </ng-template>
+</mat-toolbar> -->
+
+<mat-toolbar color="primary">
+    
+    <a routerLink="/" routerLinkActive="active">{{ appName }}<mat-icon>flight</mat-icon></a>
+    <span class="fill-remaining-space"></span>
+
+    <a routerLink="/admin" routerLinkActive="active" *ngIf="userStatus && userStatus.role === 'admin'">
+        <button mat-button>Admin</button>
+    </a>
+
+    <a routerLink="/about" routerLinkActive="active">
+        <button mat-button>About</button>
+    </a>
+
+    <a *ngIf="userStatus" (click)="logout()">
+        <button mat-button>Logout</button>
+    </a>
+
+    <a routerLink="/login"  routerLinkActive="active" *ngIf="!userStatus">
+            <button mat-button>Login</button>
+    </a>
+
+    <a routerLink="/sign-up" routerLinkActive="active" *ngIf="!userStatus">
+            <button mat-button>Sign Up</button>
+    </a>
+
 </mat-toolbar>

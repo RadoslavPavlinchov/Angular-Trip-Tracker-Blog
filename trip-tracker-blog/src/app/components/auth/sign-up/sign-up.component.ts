@@ -13,26 +13,36 @@ export class SignupComponent implements OnInit {
 
   constructor(private authService: AuthService, private route: Router) { }
 
-  signUpForm = new FormGroup({
-    email: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
-  })
+  // signUpForm = new FormGroup({
+  //   email: new FormControl('', Validators.required),
+  //   password: new FormControl('', Validators.required),
+  // })
+
+  // New changes
+  public signUpForm = new FormGroup({
+    email: new FormControl('',  Validators.required),
+    password: new FormControl('',  Validators.required),
+   
+  }); 
 
   ngOnInit() {
   }
  
-  onSignUp(form:UserI) {
-    this.authService
-    .signUpWithEmail(form)
-    .then(res => {
-      console.log('Successfully', res);
-      this.route.navigate(['/']);
-    })
-    .catch(err => {
-      console.log('Error', err);
-    })
+  // onSignUp(form:UserI) {
+  //   this.authService
+  //   .signUpWithEmail(form)
+  //   .then(res => {
+  //     console.log('Successfully', res);
+  //     this.route.navigate(['/']);
+  //   })
+  //   .catch(err => {
+  //     console.log('Error', err);
+  //   })
+  // }
+
+  // New changes
+  signup(formData: FormData){
+    this.authService.signUp(formData["email"], formData["password"]);
   }
-
-
 
 }

@@ -20,16 +20,20 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {}
 
-  onLogin(form:UserI) {
-    this.authService
-    .loginWithEmail(form)
-    .then(res => {
-      console.log('Successfully', res);
-      this.route.navigate(['/']);
-    })
-    .catch(err => {
-      console.log('Error', err);
-    })
+  // onLogin(form:UserI) {
+  //   this.authService
+  //   .loginWithEmail(form)
+  //   .then(res => {
+  //     console.log('Successfully', res);
+  //     this.route.navigate(['/']);
+  //   })
+  //   .catch(err => {
+  //     console.log('Error', err);
+  //   })
+  // }
+
+  login(formData: FormData){
+    this.authService.login(formData["email"], formData["password"]);
   }
 
 }
