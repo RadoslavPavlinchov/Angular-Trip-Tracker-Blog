@@ -20,11 +20,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     background-color: rebeccapurple !important;
 }
 
-.style {
+.family {
     background-color: salmon !important;
 }
 
 mat-chip.mat-chip.mat-primary.mat-standard-chip{
-    min-height: 1rem;
+    min-height: 2rem;
     padding: 9px;
 }

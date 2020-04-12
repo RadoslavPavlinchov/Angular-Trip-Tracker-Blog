@@ -4,17 +4,32 @@
         <form [formGroup]="signUpForm" (ngSubmit)="signup(signUpForm.value)">
             <p>
                 <mat-form-field>
-                    <input type="text" matInput placeholder="Username" formControlName="email" />
-                    <mat-error>Please enter username</mat-error>
+                    <input type="text" matInput placeholder="Email" formControlName="email" />
+                    <mat-error *ngIf="signUpForm.get('email').hasError('required')">Email is required.</mat-error>
+                    <mat-error *ngIf="signUpForm.controls.email.hasError('pattern')">Oops, wrong pattern buddy!</mat-error>
                 </mat-form-field>
             </p>
             <p>
                 <mat-form-field>
                     <input type="password" matInput placeholder="Password" formControlName="password" />
-                    <mat-error>Please enter password</mat-error>
+                    <mat-error *ngIf="signUpForm.get('password').hasError('required')">Password is required.</mat-error>
+                    <mat-error *ngIf="signUpForm.get('password').hasError('minlength')">Password must be at least 6 symbols.</mat-error>
                 </mat-form-field>
             </p>
-            <button type="submit" mat-raised-button color="primary">Sign Up</button>
+            <p>
+                <mat-form-field>
+                    <input type="password" matInput placeholder="Confirm Password" formControlName="confirmPassword" />
+                    <mat-error *ngIf="signUpForm.get('confirmPassword').hasError('required')">Repeat the password.</mat-error>
+                    <mat-error *ngIf="confirmPassword.hasError('mismatch')">Passwords do not match!</mat-error>
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field>
+                    <input type="text" matInput placeholder="Secret Level" formControlName="secret" />
+                    <mat-error *ngIf="signUpForm.controls.secret.hasError('pattern')">If you don't know the secret leave the field empty!</mat-error>
+                </mat-form-field>
+            </p>
+            <button type="submit" mat-raised-button color="primary" [disabled]="signUpForm.invalid">Sign Up</button>
             <p class="redirectToLogin">
                 <span>Already have an account? <span class="redirect" routerLink="/sign-in">Log In</span></span>
             </p>

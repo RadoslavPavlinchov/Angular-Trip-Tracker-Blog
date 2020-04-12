@@ -43,14 +43,14 @@ export class AuthService {
   // }
 
   //New changes
-  signUp(email: string, password: string) {
+  signUp(email: string, password: string, secret: string) {
     this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((userResponse) => {
         // add the user to the "users" database
         let user = {
           id: userResponse.user.uid,
           username: userResponse.user.email,
-          role: "user",
+          role: secret,
         }
         //add the user to the database
         this.firestore.collection("users").add(user)

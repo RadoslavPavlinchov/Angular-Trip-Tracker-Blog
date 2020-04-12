@@ -5,13 +5,15 @@
         <p>
           <mat-form-field>
             <input type="text" matInput placeholder="Username" formControlName="email"/>
-            <mat-error>Please enter username</mat-error>
+            <mat-error *ngIf="loginForm.get('email').hasError('required')">Email is required.</mat-error>
+            <mat-error *ngIf="loginForm.get('email').hasError('email')">Email is invalid.</mat-error>
           </mat-form-field>
         </p>
         <p>
           <mat-form-field>
             <input type="password" matInput placeholder="Password" formControlName="password"/>
-            <mat-error>Please enter password</mat-error>
+            <mat-error *ngIf="loginForm.get('password').hasError('required')">Password is required.</mat-error>
+            <mat-error *ngIf="loginForm.get('password').hasError('minlength')">Password must be at least 6 symbols.</mat-error>
           </mat-form-field>
         </p>
         <button type="submit" mat-raised-button color="primary">Login</button>
