@@ -32,9 +32,6 @@ export class EditPostComponent implements OnInit {
   }
 
   editPost(post: PostI) {
-    console.log('IMG', this.image);
-    console.log('original', this.imageOriginal);
-
     if (this.image === this.imageOriginal) {
       post.imagePost = this.imageOriginal;
       this.postService.editPostById(post);

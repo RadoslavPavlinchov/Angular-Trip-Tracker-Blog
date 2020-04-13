@@ -13,12 +13,6 @@ export class SignupComponent implements OnInit {
 
   constructor(private authService: AuthService, private route: Router) { }
 
-  // signUpForm = new FormGroup({
-  //   email: new FormControl('', Validators.required),
-  //   password: new FormControl('', Validators.required),
-  // })
-
-  // New changes
   public signUpForm = new FormGroup({
     email: new FormControl('',  [Validators.required, Validators.pattern('[A-Za-z0-9]+@[A-Za-z0-9]+\.[A-Za-z0-9]+')]),
     secret: new FormControl('',  [Validators.pattern('admin')]),
@@ -29,19 +23,6 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
  
-  // onSignUp(form:UserI) {
-  //   this.authService
-  //   .signUpWithEmail(form)
-  //   .then(res => {
-  //     console.log('Successfully', res);
-  //     this.route.navigate(['/']);
-  //   })
-  //   .catch(err => {
-  //     console.log('Error', err);
-  //   })
-  // }
-
-  // New changes
   signup(formData: FormData){
     this.authService.signUp(formData["email"], formData["password"], formData["secret"],);
   }

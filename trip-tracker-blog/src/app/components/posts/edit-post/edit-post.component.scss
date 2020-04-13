@@ -1,6 +1,3 @@
-// @import "src/scss/variables";
-// @import "src/scss/helpers";
-
 .new-post-container{
     display: flex;
     flex-direction: column;
@@ -11,7 +8,7 @@
       }
   
       input.mat-flat-button{
-      //   @include button_full($button_purpure)
+      // color: purple;
       }
   
       .custom-file{

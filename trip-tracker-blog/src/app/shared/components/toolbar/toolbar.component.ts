@@ -10,25 +10,13 @@ export class ToolbarComponent implements OnInit {
   public appName = 'Trip Tracker Blog'
 
   constructor(public authService: AuthService) { }
-  // new stuff
   userStatus = this.authService.userStatus;
 
-  // ngOnInit() {
-  // }
-
-  // New stuff
   ngOnInit(){
     this.authService.userChanges();
-
     this.authService.userStatusChanges.subscribe(x => this.userStatus = x);
-    console.log(this.userStatus)
   }
 
-  // onLogout(): void {
-  //   this.authService.logout();
-  // }
-
-  // New stuff
   logout(){
     this.authService.logOut();
     

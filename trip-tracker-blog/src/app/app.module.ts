@@ -23,8 +23,7 @@ import { EditPostComponent } from './components/posts/edit-post/edit-post.compon
 import { EditPostModule } from './components/posts/edit-post/edit-post.module';
 import { DetailsPostComponent } from './components/posts/details-post/details-post.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-// import { SignupComponent } from './components/auth/signUp/sign-up.component';
-// import { TableComponent } from './shared/components/table/table.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -35,8 +34,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ModalComponent,
     EditPostComponent,
     DetailsPostComponent,
-    // SignupComponent,
-    // TableComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
