@@ -24,6 +24,7 @@ import { EditPostModule } from './components/posts/edit-post/edit-post.module';
 import { DetailsPostComponent } from './components/posts/details-post/details-post.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FooterComponent } from './shared/components/footer/footer.component';
+import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { FooterComponent } from './shared/components/footer/footer.component';
     EditPostComponent,
     DetailsPostComponent,
     FooterComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
