@@ -8,7 +8,6 @@ const routes: Routes = [
   { 
     path: '', 
     component: AdminComponent, 
-    // canActivate: [ AuthGuard ],
     children: [
       {
         path: 'posts', loadChildren: () => import ('../posts/list-posts/list-posts.module')
